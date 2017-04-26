@@ -1,16 +1,17 @@
+
 $(document).ready(function() { // Ждём загрузки страницы
 						   
 	var slides = $(".slider .slides").children(".slide"); // Получаем массив всех слайдов
 	var width = $(".slider .slides").width(); // Получаем ширину видимой области
-	var i = slides.length; // Получаем количество слайдов
-	var offset = i * width; // Задаем начальное смещение и ширину всех слайдов
-	i--; // уменьшаем кол-во слайдов на один ( для проверки в будущем )
+	var x = slides.length; // Получаем количество слайдов
+	var offset = x * width; // Задаем начальное смещение и ширину всех слайдов
+	x--; // уменьшаем кол-во слайдов на один ( для проверки в будущем )
 
 	$(".slider .slides").css('width',offset); // Задаем блоку со слайдами ширину всех слайдов
 	
 	offset = 0; // Обнуляем смещение, так как показывается начала 1 слайд
 	$("body .slider .next").click(function(){	// Событие клика на кнопку "следующий слайд"
-		if (offset < width * i) {	// Проверяем, дошли ли мы до конца
+		if (offset < width * x) {	// Проверяем, дошли ли мы до конца
 			offset += width; // Увеличиваем смещение до следующего слайда
 			$(".slider .slides").css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к следующему
 		}
@@ -23,7 +24,6 @@ $(document).ready(function() { // Ждём загрузки страницы
 			$(".slider .slides").css("transform","translate3d(-"+offset+"px, 0px, 0px)"); // Смещаем блок со слайдами к предыдущему
 		}
 	});
-
 });
 
 $(document).ready(function() {
@@ -45,26 +45,32 @@ $(document).ready(function() {
 
 $(function() {
 	 $(window).scroll(function() {
+		    //поява кнопки ВВЕРХ після прокрутки у 400пкс
 		    if($(this).scrollTop() > 400) {
 		    $('#toTop').fadeIn();
 		    } else {
 		    $('#toTop').fadeOut();
 		    }
 		    });
+	 //прогортання на самий верх сайту
 	$('#toTop').click(function() {
 	$('body,html').animate({scrollTop:0},800);
+	});
+	$(".nav a,.nav-pre-last a").on("click", function (event) {
+			event.preventDefault();
+			//запамятовуєм значення ідентифікатора
+			var id  = $(this).attr('href'),
+			//визначаєм висоту від початку сторінки до якоря на посиланні
+			top = $(id).offset().top;
+			$('body,html').animate({scrollTop: top}, 1500);
 	});
 });
 
 $(document).ready(function(){
-	$(".nav a").on("click", function (event) {
-		//отменяем стандартную обработку нажатия по ссылке
-		event.preventDefault();
-		//забираем идентификатор бока с атрибута href
-		var id  = $(this).attr('href'),
-		//узнаем высоту от начала страницы до блока на который ссылается якорь
-			top = $(id).offset().top;
-		//анимируем переход на расстояние - top за 1500 мс
-		$('body,html').animate({scrollTop: top}, 1500);
+	$('.overlay').click(function() {
+		$(this).remove();
 	});
 });
+
+
+

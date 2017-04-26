@@ -94,7 +94,7 @@ ul,li,a,a:hover {text-decoration:none;}
     background:#fac012;
     padding:10px;
     position:fixed;
-    bottom:20px; /* отступ кнопки от нижнего края страницы*/
+    bottom:20px; 
     right:7px;
     cursor:pointer;
     display:none;
@@ -109,11 +109,14 @@ ul,li,a,a:hover {text-decoration:none;}
     padding: 15px 9px;
 }
 
+
+
+
 body .slider {
-	overflow:hidden; /* Скрываем всё что за блоком слайдера */
+	overflow:hidden; 
 	position:relative;
-	width: 100%;
-	max-width:1920px;
+	
+	max-width:1200px;
 	height:620px;
 	margin:0 auto;
 	-webkit-background-size: cover;
@@ -125,18 +128,18 @@ body .slider {
 
 
 body .slider .slides .slide img{
-	width:1920px;
+	width:1200px;
 	height:620px;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-
+	
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
 }
 
 body .slider .slides {
 	position:relative;
-	transition:1s; /* Задаем время изменения блока, отвечает за плавную прокрутку */
+	transition:1s; 
 }
 body .slider .slides .slide {
 	float:left;
@@ -201,32 +204,6 @@ body .slider a{
 	padding: 15px 32px;
 }  
 
-
-	/*
-#body1{
-	padding-top: 192px ;
-	width:100%;
-	height:620px;
-	background: #222 url(img/body1.jpg) no-repeat center bottom;
-	text-align: center;	
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-#body1 h2{
-	color:#fff;
-	font:bold 30px/30px 'OpenSans',sans-serif;
-	margin-bottom: 50px;
-}
-#body1 h2:nth-child(2){margin-bottom:60px;}
-#body1 a{
-	font: bold 18px 'OpenSans';
-	color:#fff;
-	border: 2px solid white;
-	padding: 15px 32px;
-}
-*/
 
 #body2{
 	height:808px;	
@@ -435,20 +412,74 @@ a.build_4:hover{ background: url(img/zhk-4-hover.png)	}
 		border: 2px solid #FAC012;
 	}
 
-	
+	/*Адаптивна карта*/
+
 	.map{
-		position: relative;
-		width: 1920px;
-		margin: 0 auto;
+	    overflow:hidden;
+	    padding-bottom:31%;
+	    position:relative;
+	    height:50%;
+		
+		padding-bottom: 0;
+
 	}
-	.map a{
+	/*.map iframe{
+	    left:0;
+	    top:0;
+	    height:100%;
+	    width:100%;
+	    position:absolute;
+	    margin: 0 auto;
+	}*/
+	.overlay {
+		background: transparent;
+		position: absolute;
+		width: 100%;
+		height: 630px;
+		top: 0px;
+	}
+	
+
+	form{
+		margin: 55px;
+		padding: 20px;
 		position: absolute;
 		z-index: 1;
-		top:200px;
-		font-size: 45px;
-		background-color: red;
-		padding: 20px;
+		top: 100px;
+		background-color: #fff;
 	}
+	form h1{
+		font: bold 24px/24px 'Open Sans';
+		text-transform: uppercase;
+		color: #0C2E3B;
+		padding:5px 0 5px  20px;
+		margin-bottom: 20px;
+		border-left: 3px solid #fac012;
+	}
+	input{
+		width: 200px;
+		height: 45px;
+		margin-bottom: 5px;
+		padding-left: 5px;
+		font-size: 16px;
+	}
+	select{
+		font-size: 20px;
+		width: 200px;
+		height: 45px;
+		margin-bottom: 5px;
+	}
+	form button{
+		width: 190px;
+		height: 45px;
+		color: #0c2e3b;
+		font-size: 18px;
+		color: #fff;
+		border-radius:5px;
+		background-color: #0c2e3b; 
+		margin-top: 10px;
+	}
+
 	#body8{
 		background-color: #272727;
 		height: 310px;
@@ -555,6 +586,7 @@ a.build_4:hover{ background: url(img/zhk-4-hover.png)	}
 		}
 		#body7{
 			margin-top: 160px;
+
 		}
 		.slider {
 			max-height: 420px;
@@ -635,6 +667,7 @@ a.build_4:hover{ background: url(img/zhk-4-hover.png)	}
 			float: none; 
 			padding:  7px ;
 		}
+		
 		#body5 h2{
 			font-size: 24px;
 			padding-top: 15px;
@@ -745,6 +778,9 @@ a.build_4:hover{ background: url(img/zhk-4-hover.png)	}
 		body .slider a{
 			top:280px;
 		}
+		form{
+		margin: 30px;
+		}
 }
 @media screen and (max-width: 480px) {
 		.body3-img img{
@@ -778,6 +814,31 @@ a.build_4:hover{ background: url(img/zhk-4-hover.png)	}
 			left: 15%;
 		}
 		
+	form{
+		margin: 10px;
+		padding: 10px;
+	}
+	form h1{
+		font-size: 16px;
+	}
+	input,select{
+		width: 140px;
+		font-size: 13px;
+	}
+	textarea{
+		width: 285px;
+	}
+	
+	form button{
+		width: 190px;
+		height: 45px;
+		color: #0c2e3b;
+		font-size: 18px;
+		color: #fff;
+		border-radius:5px;
+		background-color: #0c2e3b; 
+		margin-top: 10px;
+	}
 					
 }
 @media screen and (max-width: 392px) {
